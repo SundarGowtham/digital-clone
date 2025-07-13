@@ -1,7 +1,35 @@
 [project]
 name = "digital-clone"
 version = "0.1.0"
-description = "Add your description here"
+description = "A conversational digital clone app with MCP server and LangGraph agent"
 readme = "README.md"
 requires-python = ">=3.10"
-dependencies = []
+dependencies = [
+    "fastmcp>=0.1.0",
+    "langgraph>=0.2.0",
+    "langchain>=0.2.0",
+    "langchain-openai>=0.1.0",
+    "flask>=3.0.0",
+    "flask-cors>=4.0.0",
+    "pydantic>=2.0.0",
+    "python-dotenv>=1.0.0",
+    "requests>=2.31.0",
+    "websockets>=12.0",
+    "asyncio-mqtt>=0.16.0",
+    "aiohttp>=3.9.0",
+    "uvicorn>=0.27.0",
+    "fastapi>=0.109.0",
+    "pydantic-settings>=2.1.0",
+    "ray[serve]>=2.47.1",
+    "langchain-community>=0.3.27",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["agent", "mcp_server", "tools_server"]
+
+[tool.hatch.metadata]
+allow-direct-references = true
